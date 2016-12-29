@@ -4,6 +4,7 @@ window.onload = function() {
 		width,
 		left,
 		once = true,
+		canOnce = true,
 		time = [],
 		$video = $("video"),
 		screenWidth = $video.offset().width,
@@ -27,29 +28,35 @@ window.onload = function() {
 		$('.dm').html("");
 	});
 	$video.on("play", function() {
-		if(once) {//第一次开始播放时
-			//云端数据变化时
-			ref.child('message').on('child_added', function(snapshot) {
-				var text = snapshot.val();
-				var span = creatSpan(text);
-				readyMove(span);
+			if(once) { //第一次开始播放时
+				//云端数据变化时
+				ref.child('message').on('child_added', function(snapshot) {
+					var text = snapshot.val();
+					var span = creatSpan(text);
+					readyMove(span);
+				});
+				once = false;
+			} else { //暂停以后又播放
+				$(".dm span").each(function(_, span) {
+					move(span);
+				});
+			}
+			$(".control").css("display", "block");
+		}).on("pause", function() {
+			$(".dm span").each(function() {
+				clearInterval(this.time);
 			});
-			once = false;
-		} else {//暂停以后又播放
-			$(".dm span").each(function(_, span) {
-				move(span);
-			});
-		}
-		$(".control").css("display", "block");
-	}).on("pause", paused).on("waiting",function(){
-		$(".dm span").each(function() {
-			clearInterval(this.time);
+			$(".control").css("display", "none");
+		}).on("waiting", function() {
+			$video.trigger("pause");
+		}).on("canplay", function() {
+			if(canOnce) {
+				canOnce = false;
+				return;
+			}
+			$video.trigger("play");
 		});
-		$(".control").css("display", "none");
-	}).on("canplay",function(){
-		console.log("can");
-	})
-	//提交数据到野狗
+		//提交数据到野狗
 	function submitData() {
 		data = $("#text").val();
 		if(data === "" || data == undefined) {
@@ -77,7 +84,7 @@ window.onload = function() {
 		span.style.color = "rgb(" + Math.round(Math.random() * 255) + "," + Math.round(Math.random() * 255) + "," + Math.round(Math.random() * 255) + ")";
 		span.style.top = Math.round(Math.random() * (screenHeight - 50)) + "px";
 		span.style.fontSize = Math.round(Math.random() * 16 + 16) + "px";
-			move(span); //开始发射
+		move(span); //开始发射
 	}
 
 	function move(span) {
@@ -90,11 +97,5 @@ window.onload = function() {
 				return;
 			}
 		}, 1);
-	}
-	function paused(){
-		$(".dm span").each(function() {
-			clearInterval(this.time);
-		});
-		$(".control").css("display", "none");
 	}
 }

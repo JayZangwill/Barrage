@@ -62,6 +62,12 @@
 				top: this[0].offsetTop,
 				left: this[0].offsetLeft
 			}
+		},
+		trigger:function(ev){
+			var even = document.createEvent('HTMLEvents');
+			even.initEvent(ev, true, true);
+			this[0].dispatchEvent(even);
+			return this;
 		}
 	}
 
