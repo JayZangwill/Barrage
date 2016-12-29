@@ -46,12 +46,11 @@ window.onload = function() {
 			clearInterval(this.time);
 		});
 		$(".control").css("display", "none");
-	}).on("progress",function(){
-		console.log("请求中");
 	}).on("waiting",function(){
-		console.log("等待");
-	}).on("stalled",function(){
-		console.log("失速");
+		$(".dm span").each(function() {
+			clearInterval(this.time);
+		});
+		$(".control").css("display", "none");
 	})
 	//提交数据到野狗
 	function submitData() {
