@@ -125,3 +125,5 @@
 2. 暂停以后又播放
 
 如果是第一次播放，得监控云端数据，根据数据的数量创建`span`然后调用`readyMove`；如果是第二种情况的话，就直接给所有`span`加上定时器就得了。
+
+[附上代码地址](https://github.com/JayZangwill/Barrage/blob/master/js/index.js)
