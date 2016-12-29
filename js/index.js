@@ -41,16 +41,13 @@ window.onload = function() {
 			});
 		}
 		$(".control").css("display", "block");
-	}).on("pause", function() {
+	}).on("pause", paused).on("waiting",function(){
 		$(".dm span").each(function() {
 			clearInterval(this.time);
 		});
 		$(".control").css("display", "none");
-	}).on("waiting",function(){
-		$(".dm span").each(function() {
-			clearInterval(this.time);
-		});
-		$(".control").css("display", "none");
+	}).on("canplay",function(){
+		console.log("can");
 	})
 	//提交数据到野狗
 	function submitData() {
@@ -93,5 +90,11 @@ window.onload = function() {
 				return;
 			}
 		}, 1);
+	}
+	function paused(){
+		$(".dm span").each(function() {
+			clearInterval(this.time);
+		});
+		$(".control").css("display", "none");
 	}
 }
