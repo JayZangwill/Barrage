@@ -1,0 +1,94 @@
+body,
+html,
+span,
+div,
+input,
+button,
+video {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: arial "Microsoft YaHei" serif;
+}
+
+.container {
+    text-align: center;
+    width: 70%;
+    min-width: 320px;
+    margin: 10px auto 0px auto;
+}
+
+.screen {
+    position: relative;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    min-width: 320px;
+    border: 1px solid orange;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.text {
+    margin-bottom: 10px;
+}
+.control{
+	display: none;
+}
+#text {
+    width: 300px;
+    height: 35px;
+    border: 1px solid orange;
+    border-radius: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.dm span {
+    position: absolute;
+    font-weight: bolder;
+    white-space: nowrap;
+    z-index: 2147483648;
+}
+
+.buttons {
+    width: 228px;
+    margin: auto;
+}
+
+#submit,
+#clean {
+    float: left;
+    margin-left: 10px;
+    width: 100px;
+    height: 30px;
+    background-color: orange;
+    border-radius: 10px;
+    border: 1px solid orange;
+    outline: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+#submit:hover,
+#clean:hover {
+    background-color: gold;
+    border-color: gold;
+}
+
+#submit:active,
+#clean:active {
+    padding: 2px 0 0 2px;
+}
+
+.screen video {
+    width: 100%;
+    height: 100%;
+}
+.dm {
+	width: 100%;
+    height: 100%;
+}
