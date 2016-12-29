@@ -1,6 +1,6 @@
 # 一个简易的弹幕视频
 
-这个是由[fcc](https://freecodecamp.cn/challenges/design-a-danmu-app)上的弹幕视频改编来的。
+这个是由[fcc](https://freecodecamp.cn/challenges/design-a-danmu-app)上的弹幕练习改编来的。
 
 因为之前看了一些jQuery源码，这次打算自己封装一个自己的jQuery用来做这个小练习，一来可以减少资源的占用，二来可以锻炼锻炼自己对封装插件的能力。
 
