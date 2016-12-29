@@ -32,8 +32,7 @@
 
 首先，因为数据是放在野狗云上的，所以得调用野狗云的api。在调api的时候得new一个野狗的实例(这叫起来貌似有点怪)
 
-	ref = new Wilddog("https://jayzangwill.wilddogio.com")
-
+	ref = new Wilddog("https://jayzangwill.wilddogio.com")//这个地址是野狗云上你的项目设置的地址，这里就以我的为例了
 当用户点发送弹幕时需要把用户输入的内容发送到野狗云：
 
 	//提交数据到野狗
