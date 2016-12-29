@@ -3,6 +3,7 @@
 这个是由[fcc](https://freecodecamp.cn/challenges/design-a-danmu-app)上的弹幕练习改编来的。
 
 [地址](https://jayzangwill.github.io/Barrage/)
+
 因为之前看了一些jQuery源码，这次打算自己封装一个自己的jQuery用来做这个小练习，一来可以减少资源的占用，二来可以锻炼锻炼自己对封装插件的能力。
 
 因为这次封装的jQuery插件只是针对这个练习用的，所以插件有很多地方的容错性是比较差的，不适合用来做其他的。
