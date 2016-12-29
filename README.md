@@ -23,6 +23,8 @@
 
 整个插件只有72行，所以体积很小，资源的占用特别少。
 
+[插件地址](https://github.com/JayZangwill/Barrage/blob/master/js/forindex.js)
+
 ## 整个项目的构思
 
 1. 用户播放视频，弹幕开始发射(如果有的话)
