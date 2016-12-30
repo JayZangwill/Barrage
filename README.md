@@ -2,7 +2,7 @@
 
 这个是由[fcc](https://freecodecamp.cn/challenges/design-a-danmu-app)上的弹幕练习改编来的。
 
-[地址](https://jayzangwill.github.io/Barrage/)
+[地址](http://www.jayzangwill.cn/Barrage/index.html)
 
 因为之前看了一些jQuery源码，这次打算自己封装一个自己的jQuery用来做这个小练习，一来可以减少资源的占用，二来可以锻炼锻炼自己对封装插件的能力。
 
@@ -127,3 +127,12 @@
 如果是第一次播放，得监控云端数据，根据数据的数量创建`span`然后调用`readyMove`；如果是第二种情况的话，就直接给所有`span`加上定时器就得了。
 
 [附上代码地址](https://github.com/JayZangwill/Barrage/blob/master/js/index.js)
+
+## 漏洞修补
+
+### 修改网络慢的时候出现的bug  --2016.12.30
+
+1. 增加waiting事件，监听视频出现卡顿
+2. 增加canplay事件，监听视频从卡顿到播放
+
+[传送门](https://github.com/JayZangwill/Barrage/blob/master/js/index.js#L56)
