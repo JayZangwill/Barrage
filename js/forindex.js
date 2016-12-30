@@ -21,7 +21,7 @@
 		},
 		on: function(ev, callback) {
 			this.each(function(_, dom) {
-				addEventListener.call(dom, ev, callback);
+				dom.addEventListener(ev, callback);
 			});
 			return this;
 		},

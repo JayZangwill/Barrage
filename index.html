@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>简单的弹幕</title>
-    <link rel="stylesheet" href="css/index.css">
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="shortcut icon" href="img/touxiang.ico">
+		<title>简单的弹幕</title>
+		<link rel="stylesheet" href="css/index.css">
+		<!--[if lt IE 9]>   
+    	<link rel="stylesheet" href="css/forie.min.css">
+    <![endif]-->
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?657866367db4aa3346c555211ea1193c";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
 
-<body>
-    <div class="container">
-        <div class="screen">
-            <video src="static/mp4.mp4" controls="controls" poster="img/115387816.jpg">
-                <source src="static/mp4.mp4" type="video/mp4">
-            </video>
-            <div class="dm"></div>
-        </div>
-        <div class="control">
-            <div class="text">
-                <input id="text" type="text" placeholder="输入文本">
-            </div>
-            <div class="buttons">
-                <button id="submit">发送</button>
-                <button id="clean">清屏</button>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.wilddog.com/js/client/current/wilddog.js"></script>
-    <script src="js/forindex.js"></script>
-    <script src="js/index.js"></script>
-</body>
+	</head>
+
+	<body>
+		<div class="hack">您的浏览器版本太低，请下载新的浏览器</div>
+		<div class="container">
+			<div class="screen">
+				<video src="static/mp4.mp4" controls poster="img/115387816.jpg">
+					<source src="static/mp4.mp4" type="video/mp4">
+				</video>
+				<div class="dm"></div>
+			</div>
+			<div class="control">
+				<div class="text">
+					<input id="text" type="text" placeholder="输入文本">
+				</div>
+				<div class="buttons">
+					<button id="submit">发送</button>
+					<button id="clean">清屏</button>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.wilddog.com/js/client/current/wilddog.js"></script>
+		<script src="js/forindex.js"></script>
+		<script src="js/index.js"></script>
+	</body>
 
 </html>
