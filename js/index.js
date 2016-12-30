@@ -5,7 +5,8 @@ window.onload = function() {
 		left,
 		once = true,
 		canOnce = true,
-		time = [],
+		paused = false,
+		waiting=true,
 		$video = $("video"),
 		screenWidth = $video.offset().width,
 		screenHeight = $video.offset().height;
@@ -28,35 +29,42 @@ window.onload = function() {
 		$('.dm').html("");
 	});
 	$video.on("play", function() {
-			if(once) { //第一次开始播放时
-				//云端数据变化时
-				ref.child('message').on('child_added', function(snapshot) {
-					var text = snapshot.val();
-					var span = creatSpan(text);
-					readyMove(span);
-				});
-				once = false;
-			} else { //暂停以后又播放
-				$(".dm span").each(function(_, span) {
-					move(span);
-				});
-			}
-			$(".control").css("display", "block");
-		}).on("pause", function() {
-			$(".dm span").each(function() {
-				clearInterval(this.time);
+		if(once) { //第一次开始播放时
+			//云端数据变化时
+			ref.child('message').on('child_added', function(snapshot) {
+				var text = snapshot.val();
+				var span = creatSpan(text);
+				readyMove(span);
 			});
-			$(".control").css("display", "none");
-		}).on("waiting", function() {
-			$video.trigger("pause");
-		}).on("canplay", function() {
-			if(canOnce) {
-				canOnce = false;
-				return;
-			}
-			$video.trigger("play");
+			once = false;
+		} else { //暂停以后又播放
+			$(".dm span").each(function(_, span) {
+				if(this.time){
+					clearInterval(this.time);
+				}
+				move(span);
+			});
+		}
+		paused = false;
+		$(".control").css("display", "block");
+	}).on("pause", function() {
+		$(".dm span").each(function() {
+			clearInterval(this.time);
 		});
-		//提交数据到野狗
+		paused = true;
+		$(".control").css("display", "none");
+	}).on("waiting", function() {
+		$video.trigger("pause");
+		waiting=false;
+	}).on("canplay", function() {
+		if(canOnce || (paused&&waiting)) {
+			canOnce = false;
+			return;
+		}
+		$video.trigger("play");
+		waiting=true;
+	});
+	//提交数据到野狗
 	function submitData() {
 		data = $("#text").val();
 		if(data === "" || data == undefined) {
